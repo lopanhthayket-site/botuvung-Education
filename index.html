@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Từ vựng Topic: Education- Lớp Anh thầy Kết</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #fff8f0;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+
+ header {
+  background-color: #ffd6ba;
+  padding: 15px 20px;
+  font-weight: bold;
+  color: #7a4e3e;
+  display: flex;
+  flex-wrap: wrap;       
+  align-items: center;
+  justify-content: space-between;  /* Left luôn bên trái, center căn giữa */
+  gap: 15px;
+}
+
+/* Left: icon + home text */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 0 0 auto;          /* không bị co lại */
+}
+
+.header-left a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 24px;
+  color: #7a4e3e;
+  text-decoration: none;
+}
+
+.header-left a i {
+  font-size: 28px;
+}
+
+/* Center title */
+header {
+  position: relative;
+}
+
+.header-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  font-size: 32px;
+  margin: 0;
+  white-space: nowrap;
+}
+/* ===== TOP SELECT ===== */
+.top-select {
+  display: flex;
+  justify-content: flex-start;
+  margin: 20px 40px;
+}
+
+select {
+  padding: 8px 14px;
+  font-size: 18px;
+  border-radius: 8px;
+  border: 2px solid #a0e7e5;
+  background-color: #e3fdfd;
+}
+
+
+
+/* MEDIA QUERY cho điện thoại */
+@media (max-width: 480px) {
+
+    .header-center {
+    flex-basis: 100%;
+    order: 2;
+    text-align: center;
+    position: static;
+    transform: none;
+    margin-top: 8px;
+  }
+
+  .header-left {
+    order: 1;
+  }
+}
+
+  header {
+    padding: 10px 15px;
+  }
+  .header-left a {
+    font-size: 18px;
+  }
+  .header-left a i {
+    font-size: 20px;
+  }
+  .header-center {
+    font-size: 22px;
+  }
+}
+
+
+  .top-select {
+    display: flex;
+    justify-content: flex-start;
+    margin: 20px 40px;
+  }
+
+  select {
+    padding: 8px 14px;
+    font-size: 18px;
+    border-radius: 8px;
+    border: 2px solid #a0e7e5;
+    background-color: #e3fdfd;
+  }
+
+  /* Word list */
+  .word-list {
+    width: 85%;
+    margin: 20px auto;
+    background-color: #E0FBE2;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: left;
+    font-size: 22px;
+  }
+
+.word-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 10px;
+  border-bottom: 1px dashed #ffb3ba;
+  transition: background-color .15s ease-in-out;
+}
+.word-row:last-child { border-bottom: none; }
+
+/* Hover đổi màu */
+.word-row:hover {
+  background-color: #fffacd; /* xanh nhạt dễ thấy */
+  cursor: pointer;
+}
+
+  /* Ôn tập */
+  .review-box {
+    margin: 40px auto;
+    width: 70%;
+    background-color: #ffe5ec;
+    padding: 25px;
+    font-weight: bold;
+    color: #607274;
+    font-size: 26px;
+    border-radius: 12px;
+    position: relative;
+  }
+  .review-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 15px;
+}
+.review-buttons button {
+  background-color: #a0e7e5;
+  border: none;
+  padding: 12px 20px;
+  font-size: 20px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.review-buttons button:hover {
+  background-color: #ffb3ba;
+}
+
+
+  /* Bài tập */
+  .exercise {
+    width: 80%;
+    margin: 0 auto 30px auto;
+    font-size: 22px;
+    text-align: left;
+  }
+
+  .exercise input {
+    width: 220px;
+    font-size: 20px;
+    padding: 5px;
+    margin-left: 10px;
+    border-radius: 6px;
+  }
+
+  .exercise button {
+    margin-left: 10px;
+    padding: 6px 12px;
+    font-size: 18px;
+    background-color: #a0e7e5;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .exercise button:hover {
+    background-color: #ffb3ba;
+  }
+
+  .result {
+    font-weight: bold;
+    color: #C5705D;
+    font-size: 20px;
+    margin-left: 10px;
+  }
+
+  footer {
+    font-size: 22px;
+    margin-top: 40px;
+    padding: 20px;
+    color: #7a4e3e;
+    background-color: #fff0e1;
+  }
+
+  .confetti {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    background: red;
+    opacity: .9;
+    animation: pop .9s ease-out forwards;
+  }
+  @keyframes pop {
+    0% { transform: translate(0,0) scale(1); opacity:1;}
+    50% {transform: translate(calc(var(--x)*.5),calc(var(--y)*.4)) scale(1.1);opacity:1;}
+    100% {transform: translate(var(--x),var(--y)) scale(.5);opacity:0;}
+  }
+
+.mc-options {
+  margin-left: -20;        /* đẩy sang trái */
+  padding-left: -20px;
+}
+
+.mc-options div {
+  margin-left: 0;
+}
+
+.mc-options input[type="radio"] {
+  margin-right: -70px;     /* khoảng cách tròn – chữ */
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-left">
+    <a href="https://ketng91.github.io/TuvungTHPTQ-homepage/">
+      <i class="fa-solid fa-house"></i> Lớp Anh thầy Kết
+    </a>
+  </div>
+  <div class="header-center">
+    Từ vựng Topic: Education
+  </div>
+</header>
+
+<!-- Bộ chọn -->
+<div class="top-select">
+  <select id="wordList">
+    <option value="1">Từ vựng Topic: Education</option>
+
+
+  </select>
+</div>
+
+
+
+<script>
+// Bắt sự kiện Enter cho tất cả các ô input trong bài tập
+document.addEventListener("DOMContentLoaded", function() {
+  const exerciseInputs = document.querySelectorAll(".exercise input");
+
+  exerciseInputs.forEach(input => {
+    input.addEventListener("keydown", function(e) {
+      if (e.key === "Enter") {      // Kiểm tra nếu nhấn Enter
+        e.preventDefault();          // Ngăn việc xuống dòng mặc định
+        const checkBtn = this.nextElementSibling; // giả định nút Check ngay sau input
+        if (checkBtn && checkBtn.tagName === "BUTTON") {
+          checkBtn.click();         // kích hoạt nút Check
+        }
+      }
+    });
+  });
+});
+</script>
+
+
+
+<!-- Danh sách từ vựng -->
+<div class="word-list" id="wordContainer"></div>
+
+<!-- Ôn tập -->
+<div class="review-box">
+
+<div id="progressCounter"
+     style="position:absolute; top:12px; right:18px;
+            font-size:18px; color:#7a4e3e;">
+  Đã biết 0 / 0
+</div>
+
+
+  <div id="vietWord">Chọn Bộ từ vựng để bắt đầu</div>
+    
+  <!-- Hiển thị đáp án -->
+<div id="answer" style="font-size:22px;color:#7a4e3e; margin-top:15px; text-align:center; min-height:40px;"></div>
+   
+  <!-- Nút bấm -->
+  <div class="review-buttons" style="margin-top:20px;">
+    <button onclick="know()">Đã biết</button>
+    <button onclick="dontKnow()">Chưa biết</button>
+    <button onclick="nextWord()">Tiếp theo</button>
+  </div>
+
+</div>
+
+<!-- Bài tập -->
+<div class="exercise" id="exercise"></div>
+
+<footer>Chúc mừng bạn đã hoàn thành bài học!</footer>
+<script>
+const selectEl = document.getElementById("wordList");
+
+function sortOptionsByNumber() {
+  const opts = Array.from(selectEl.options);
+
+  opts.sort((a, b) => {
+    return Number(a.value) - Number(b.value);
+  });
+
+  selectEl.innerHTML = "";
+  opts.forEach(o => selectEl.appendChild(o));
+}
+
+// sort ngay khi load
+sortOptionsByNumber();
+
+// sort lại khi mở dropdown
+selectEl.addEventListener("mousedown", sortOptionsByNumber);
+selectEl.addEventListener("touchstart", sortOptionsByNumber);
+</script>
+
+<script>
+/********** DATA **********/
+const data = {
+  1: [
+  // 1. Gốc từ COMPULSORY
+  { en: "compel (v) /kəmˈpɛl/", vn: "bắt buộc / ép buộc", tick: false },
+  { en: "compulsory (adj) /kəmˈpʌlsəri/", vn: "bắt buộc", tick: false },
+  { en: "compulsion (n) /kəmˈpʌlʃən/", vn: "sự bắt buộc / sự cưỡng chế", tick: false },
+
+  // 2. Gốc từ SUBJECT
+  { en: "subject (n) /ˈsʌbdʒɪkt/", vn: "môn học / chủ đề", tick: false },
+  { en: "subjective (adj) /səbˈdʒɛktɪv/", vn: "chủ quan", tick: false },
+
+  // 3. Gốc từ REVISE
+  { en: "revise (v) /rɪˈvaɪz/", vn: "ôn tập / xem lại", tick: false },
+  { en: "revision (n) /rɪˈvɪʒən/", vn: "sự ôn tập / sự sửa đổi", tick: false },
+
+  // 4. Gốc từ EXAMINATION
+  { en: "examine (v) /ɪɡˈzæmɪn/", vn: "khảo sát / kiểm tra / khám", tick: false },
+  { en: "examination (n) /ɪɡˌzæmɪˈneɪʃn/", vn: "kỳ thi / sự kiểm tra", tick: false },
+  { en: "examiner (n) /ɪɡˈzæmɪnər/", vn: "giám khảo / người chấm thi", tick: false },
+  { en: "examinee (n) /ɪɡˌzæmɪˈniː/", vn: "thí sinh / người đi thi", tick: false },
+
+  // 5. Gốc từ ATTEND
+  { en: "attend (v) /əˈtɛnd/", vn: "tham dự / chú ý", tick: false },
+  { en: "attendance (n) /əˈtɛndəns/", vn: "sự tham dự / số lượng người dự", tick: false },
+  { en: "attendant (n) /əˈtɛndənt/", vn: "người phục vụ / người tiếp đón", tick: false },
+
+  // 6. Gốc từ GRADUATE
+  { en: "graduate (from) (v) /ˈɡrædʒueɪt/", vn: "tốt nghiệp", tick: false },
+  { en: "graduate (n) /ˈɡrædʒuət/", vn: "người đã tốt nghiệp", tick: false },
+  { en: "graduation (n) /ˌɡrædʒuˈeɪʃən/", vn: "lễ tốt nghiệp / sự tốt nghiệp", tick: false },
+  { en: "undergraduate (n) /ˌʌndərˈɡrædʒuət/", vn: "sinh viên chưa tốt nghiệp", tick: false },
+
+  // 7. Gốc từ ACADEMIC
+  { en: "academic (adj) /ˌækəˈdɛmɪk/", vn: "thuộc học thuật", tick: false },
+  { en: "academically (adv) /ˌækəˈdɛmɪkli/", vn: "về mặt học thuật", tick: false },
+  { en: "academy (n) /əˈkædəmi/", vn: "học viện / viện hàn lâm", tick: false },
+
+  // 8. Gốc từ UNIFORM
+  { en: "uniform (n) /ˈjuːnɪfɔːrm/", vn: "đồng phục", tick: false },
+  { en: "uniformity (n) /ˌjuːnɪˈfɔːrməti/", vn: "sự đồng nhất", tick: false },
+
+  // 9. Gốc từ CERTIFICATE
+  { en: "certify (v) /ˈsɜːrtɪfaɪ/", vn: "chứng nhận / xác nhận", tick: false },
+  { en: "certificate (n) /səˈtɪfɪkət/", vn: "chứng chỉ / giấy chứng nhận", tick: false },
+  { en: "certification (n) /ˌsɜːrtɪfɪˈkeɪʃən/", vn: "sự cấp chứng chỉ", tick: false },
+
+  // 10. Gốc từ ASSIGNMENT
+  { en: "assign (v) /əˈsaɪn/", vn: "phân công / giao việc", tick: false },
+  { en: "assignment (n) /əˈsaɪnmənt/", vn: "bài tập lớn / nhiệm vụ được giao", tick: false },
+
+  // 11. Gốc từ KNOWLEDGE
+  { en: "know (v) /noʊ/", vn: "biết", tick: false },
+  { en: "knowledge (n) /ˈnɑːlɪdʒ/", vn: "kiến thức", tick: false },
+  { en: "knowledgeable (adj) /ˈnɑːlɪdʒəbəl/", vn: "có kiến thức rộng / am hiểu", tick: false },
+
+  // 1. Gốc từ LECTURER
+  { en: "lecture (v) /ˈlɛktʃər/", vn: "giảng bài / thuyết trình", tick: false },
+  { en: "lecture (n) /ˈlɛktʃər/", vn: "bài giảng / bài thuyết trình", tick: false },
+  { en: "lecturer (n) /ˈlɛktʃərər/", vn: "giảng viên đại học", tick: false },
+
+  // 2. Gốc từ LITERACY
+  { en: "literacy (n) /ˈlɪtərəsi/", vn: "sự biết chữ / sự hiểu biết cơ bản", tick: false },
+  { en: "literate (adj) /ˈlɪtərət/", vn: "biết đọc biết viết / có học thức", tick: false },
+
+  // 3. Gốc từ THEORETICAL
+  { en: "theory (n) /ˈθɪəri/", vn: "lý thuyết / học thuyết", tick: false },
+  { en: "theorize (v) /ˈθɪəraɪz/", vn: "đưa ra giả thuyết / lý thuyết hóa", tick: false },
+  { en: "theoretical (adj) /ˌθiːəˈrɛtɪkəl/", vn: "thuộc về lý thuyết", tick: false },
+  { en: "theoretically (adv) /ˌθiːəˈrɛtɪkli/", vn: "về mặt lý thuyết", tick: false },
+
+  // 1. Gốc từ ENROLLMENT
+  { en: "enroll (in/on)(v) /ɪnˈroʊl/", vn: "đăng ký / kết nạp / nhập học", tick: false },
+  { en: "enrollment (n) /ɪnˈroʊlmənt/", vn: "sự đăng ký nhập học / số lượng nhập học", tick: false },
+
+  // 2. Gốc từ ADDRESS
+  { en: "address (n) /ˈædrɛs/", vn: "địa chỉ / bài diễn văn", tick: false },
+  { en: "address (v) /əˈdrɛs/", vn: "giải quyết / xử lý (vấn đề)", tick: false },
+
+  // 3. Gốc từ MOTIVATOR
+  { en: "motivate (v) /ˈmoʊtɪˌveɪt/", vn: "thúc đẩy / tạo động lực", tick: false },
+  { en: "motivated (adj) /ˈmoʊtɪˌveɪtɪd/", vn: "có chí tiến thủ / đầy nhiệt huyết", tick: false },
+  { en: "motivator (n) /ˈmoʊtɪˌveɪtər/", vn: "nhân tố thúc đẩy / người truyền động lực", tick: false },
+  { en: "motivation (n) /ˌmoʊtɪˈveɪʃən/", vn: "sự thúc đẩy / lòng nhiệt huyết", tick: false },
+  { en: "motivational (adj) /ˌmoʊtɪˈveɪʃənəl/", vn: "thuộc về truyền động lực", tick: false },
+
+  // 4. Gốc từ PURSUE
+  { en: "pursue (v) /pərˈsuː/", vn: "theo đuổi (mục tiêu, sự nghiệp)", tick: false },
+  { en: "pursuit (n) /pərˈsuːt/", vn: "sự theo đuổi / hành động đuổi theo", tick: false },
+
+  // Các từ đơn (không có họ từ phổ biến trong chương trình học)
+  { en: "homework (n) /ˈhoʊmwɜːrk/", vn: "bài tập về nhà", tick: false },
+  { en: "timetable (n) /ˈtaɪmteɪbl/", vn: "thời khóa biểu", tick: false },
+  { en: "semester (n) /sɪˈmɛstər/", vn: "học kỳ", tick: false },
+  { en: "nursery school / kindergarten (n) /ˈnɜːrsəri skul/ /ˈkɪndərˌɡɑːrtən/", vn: "trường mẫu giáo", tick: false },
+  { en: "primary school (n) /ˈpraɪmɛri skul/", vn: "trường tiểu học", tick: false },
+  { en: "secondary school (n) /ˈsɛkənˌdɛri skul/", vn: "trường trung học", tick: false },
+  { en: "higher education (n) /ɛdʒəˈkeɪʃən/", vn: "giáo dục đại học / cao đẳng", tick: false },
+  { en: "boarding school (n) /ˈbɔːrdɪŋ skul/", vn: "trường nội trú", tick: false },
+  { en: "state school (n) /steɪt skul/", vn: "trường công lập", tick: false },
+  { en: "private school (n) /ˈpraɪvət skul/", vn: "trường tư thục", tick: false },
+  { en: "bachelor's degree (n) /ˈbætʃələrz dɪˈɡriː/", vn: "bằng cử nhân", tick: false },
+  { en: "master's degree (n) /ˈmæstərz dɪˈɡriː/", vn: "bằng thạc sĩ", tick: false },
+  { en: "diploma (n) /dɪˈploʊmə/", vn: "bằng đào tạo chính quy", tick: false },
+  { en: "qualification (n) /ˌkwɑːlɪfɪˈkeɪʃən/", vn: "bằng cấp (nói chung)/trình độ chuyên môn, bằng cấp", tick: false },
+  { en: "professor (n) /prəˈfɛsər/", vn: "giáo sư", tick: false },
+  { en: "tutor (n) /ˈtutər/", vn: "gia sư / người hướng dẫn", tick: false },
+  { en: "principal / headteacher (n) /ˈprɪnsəpəl/ /hɛd ˈtitʃər/", vn: "hiệu trưởng", tick: false },
+  { en: "pupil (n) /ˈpjupəl/", vn: "học sinh (thường là tiểu học)", tick: false },
+  { en: "critical thinking (n) /ˈkrɪtɪkəl ˈθɪŋkɪŋ/", vn: "tư duy phản biện", tick: false },
+  { en: "syllabus (n) /ˈsɪləbəs/", vn: "chương trình học chi tiết", tick: false },
+  { en: "cultivate (v) /ˈkʌltɪveɪt/", vn: "trau dồi; nuôi dưỡng", tick: false },
+  { en: "evaluate (v) /ɪˈvæljueɪt/", vn: "đánh giá", tick: false },
+  { en: "well-educated (adj) /ˌwɛl ˈɛdʒʊkeɪtɪd/", vn: "được giáo dục bài bản; có học thức", tick: false },
+  { en: "grade (n/v) /ɡreɪd/", vn: "điểm số / chấm điểm", tick: false },
+  { en: "scholarship (n) /ˈskɑːlərˌʃɪp/", vn: "học bổng", tick: false },
+  { en: "tuition fee (n) /tuˈɪʃən fiː/", vn: "học phí", tick: false },
+  { en: "bookworm (n) /ˈbʊkˌwɜːrm/", vn: "mọt sách", tick: false },
+  { en: "concentrate on (phr v) /ˈkɒnsəntreɪt ɒn/", vn: "tập trung vào", tick: false },
+  { en: "focus on (phr v) /ˈfəʊkəs ɒn/", vn: "tập trung vào", tick: false },
+  { en: "essay (n) /ˈɛseɪ/", vn: "bài luận", tick: false },
+  { en: "freshman (n) /ˈfrɛʃmən/", vn: "sinh viên năm nhất", tick: false },
+  { en: "grant (n/v) /ɡrɑːnt/", vn: "cấp, trợ cấp", tick: false },
+  { en: "distance learning (n) /ˈdɪstəns ˈlɜːrnɪŋ/", vn: "học từ xa", tick: false },
+  { en: "intensive course (n) /ɪnˈtɛnsɪv kɔːrs/", vn: "khóa học chuyên sâu", tick: false },
+  { en: "play truant (phr) /pleɪ ˈtruːənt/", vn: "trốn học", tick: false },
+  { en: "rote learning (n) /rəʊt ˈlɜːrnɪŋ/", vn: "học vẹt", tick: false },
+  { en: "learn by heart (phr) /lɜːrn baɪ hɑːrt/", vn: "học thuộc lòng", tick: false },
+  { en: "copycat (n) /ˈkɑːpiˌkæt/", vn: "kẻ bắt chước (chép bài)", tick: false },
+  { en: "dropout (n) /ˈdrɑːpˌaʊt/", vn: "người bỏ học", tick: false },
+  { en: "drop out of school (phr) /drɑːp aʊt əv skul/", vn: "bỏ học giữa chừng", tick: false },
+  { en: "cram for an exam (phr) /kræm fɔːr ən ɪɡˈzæm/", vn: "học nhồi nhét để thi", tick: false },
+  { en: "sit / take an exam (phr) /sɪt/ /teɪk ən ɪɡˈzæm/", vn: "đi thi / tham dự kỳ thi", tick: false },
+  { en: "pass an exam (phr) /pæs ən ɪɡˈzæm/", vn: "đậu kỳ thi", tick: false },
+  { en: "fail an exam (phr) /feɪl ən ɪɡˈzæm/", vn: "trượt kỳ thi", tick: false },
+  { en: "fall behind with studies (phr) /fɔːl bɪˈhaɪnd wɪð ˈstʌdiz/", vn: "tụt lại trong học tập", tick: false },
+  { en: "take a gap year/ year out (n) /ɡæp jɪr/", vn: "nghỉ học một năm", tick: false },
+  { en: "hit the books (phr) /hɪt ðə bʊks/", vn: "bắt đầu học tập nghiêm túc", tick: false },
+  { en: "broaden my horizons (phr) /ˈbrɔːdən maɪ həˈraɪzənz/", vn: "mở rộng tầm mắt / kiến thức", tick: false },
+  ],
+
+};
+
+const exercises = {
+  1: [
+  {
+    q: "School attendance is __________ in many countries.",
+    options: ["revise", "compulsory", "uniform", "lecture"],
+    correct: "B",
+    explain: "Compulsory nghĩa là bắt buộc. Việc đi học là bắt buộc ở nhiều quốc gia."
+  },
+  {
+    q: "Her opinion is too __________ and lacks evidence.",
+    options: ["subjective", "academic", "motivated", "literate"],
+    correct: "A",
+    explain: "Subjective nghĩa là chủ quan (dựa trên ý kiến cá nhân thay vì sự thật)."
+  },
+  {
+    q: "Students should __________ their lessons before the exam.",
+    options: ["graduate", "revise", "assign", "enroll"],
+    correct: "B",
+    explain: "Revise nghĩa là ôn tập lại bài vở trước kỳ thi."
+  },
+  {
+    q: "The final __________ will take place next week.",
+    options: ["lecture", "examination", "subject", "timetable"],
+    correct: "B",
+    explain: "Examination (kỳ thi) là danh từ phù hợp nhất cho ngữ cảnh diễn ra vào tuần tới."
+  },
+  {
+    q: "Each __________ must bring an ID card to the test room.",
+    options: ["examiner", "examinee", "lecturer", "tutor"],
+    correct: "B",
+    explain: "Examinee là thí sinh (người đi thi). Examiner là giám thị."
+  },
+  {
+    q: "She will __________ from university next year.",
+    options: ["enroll", "graduate", "revise", "pursue"],
+    correct: "B",
+    explain: "Cấu trúc 'graduate from + university': tốt nghiệp từ trường đại học."
+  },
+  {
+    q: "He is an international __________ studying business administration.",
+    options: ["undergraduate", "principal", "professor", "dropout"],
+    correct: "A",
+    explain: "Undergraduate là sinh viên đang học đại học (chưa tốt nghiệp)."
+  },
+  {
+    q: "The university focuses on __________ research.",
+    options: ["academy", "academic", "academically", "academics"],
+    correct: "B",
+    explain: "Academic (tính từ) bổ nghĩa cho danh từ 'research': nghiên cứu học thuật."
+  },
+  {
+    q: "Students must wear a school _________.",
+    options: ["uniform", "uniformity", "subject", "syllabus"],
+    correct: "A",
+    explain: "School uniform là đồng phục học sinh."
+  },
+  {
+    q: "The teacher will __________ a project to the students.",
+    options: ["assignment", "assign", "attend", "pursue"],
+    correct: "B",
+    explain: "Assign (động từ) nghĩa là phân công, giao bài tập/dự án."
+  },
+  {
+    q: "She has a wide range of __________ about economics.",
+    options: ["know", "knowledge", "knowing", "knowledgeable"],
+    correct: "B",
+    explain: "Cần một danh từ sau giới từ 'of'. Knowledge nghĩa là kiến thức."
+  },
+  {
+    q: "The professor gave a long __________ on climate change.",
+    options: ["lecture", "lecturer", "tutor", "exam"],
+    correct: "A",
+    explain: "Lecture là bài giảng. Professor (giáo sư) thì đưa ra bài giảng."
+  },
+  {
+    q: "Many adults are fully __________ and can read newspapers easily.",
+    options: ["literacy", "literate", "literary", "literal"],
+    correct: "B",
+    explain: "Literate (tính từ) nghĩa là biết đọc biết viết."
+  },
+  {
+    q: "He decided to __________ a career in medicine.",
+    options: ["pursuit", "pursue", "pursuing", "pursued"],
+    correct: "B",
+    explain: "Pursue a career là cụm từ cố định: theo đuổi một sự nghiệp."
+  },
+  {
+    q: "Students often __________ for exams at the last minute.",
+    options: ["hit the books", "fall behind", "drop out", "broaden horizons"],
+    correct: "A",
+    explain: "Hit the books là thành ngữ nghĩa là học tập chăm chỉ (thường dùng khi ôn thi)."
+  },
+  {
+    q: "His lack of __________ made him lose interest in studying. (MOTIVATE)", 
+    a: "motivation"
+  },
+  {
+    q: "Teachers should __________ students’ progress regularly. (EVALUATION)", 
+    a: "evaluate"
+  },
+  {
+    q: "<b>Reading Practice:</b> In many countries, education is compulsory for children. Students attend school every day and study different subjects such as math, science, and history. Before an examination, they usually revise their lessons and complete their homework. Some students also take extra courses to improve their academic performance. At university, undergraduates work hard to graduate and receive a certificate or a degree. Lecturers give lectures and assign projects to help students gain knowledge. Many students are highly motivated because they want to pursue a good career in the future. However, some students fall behind with their studies because they do not concentrate in class. Teachers encourage them to focus more and develop critical thinking skills. Education plays an important role in shaping a person’s life.", 
+    a: "Bản dịch: Ở nhiều quốc gia, giáo dục là bắt buộc đối với trẻ em. Học sinh đi học mỗi ngày và học các môn như toán, khoa học và lịch sử. Trước kỳ thi, họ thường ôn tập bài học và làm bài tập về nhà. Một số học sinh còn tham gia các khóa học thêm để cải thiện thành tích học thuật. Ở đại học, sinh viên chưa tốt nghiệp học tập chăm chỉ để tốt nghiệp và nhận chứng chỉ hoặc bằng cấp. Giảng viên giảng bài và giao dự án để giúp sinh viên có thêm kiến thức. Nhiều sinh viên rất có động lực vì họ muốn theo đuổi một sự nghiệp tốt trong tương lai. Tuy nhiên, một số học sinh bị tụt lại trong học tập vì họ không tập trung trong lớp. Giáo viên khuyến khích họ tập trung hơn và phát triển tư duy phản biện. Giáo dục đóng vai trò quan trọng trong việc hình thành cuộc sống của một con người."
+  },
+
+
+  ],
+
+
+
+};
+
+let currList = 1, listCopy=[], index=0;
+
+let totalWords = 0;
+let knownCount = 0;
+
+/********** LOAD LIST **********/
+function loadList(){
+  currList = document.getElementById("wordList").value;
+  listCopy = [...data[currList]];
+  totalWords = listCopy.length;
+  knownCount = 0;
+
+  updateCounter();
+  renderWords();
+  index=-1;
+  nextWord();
+  loadExercises();
+}
+
+function updateCounter(){
+  document.getElementById("progressCounter").innerText =
+    `Đã biết ${knownCount} / ${totalWords}`;
+}
+
+
+document.getElementById("wordList").onchange = loadList;
+loadList();
+
+/********** RENDER & SORT **********/
+function renderWords(){
+  const box=document.getElementById("wordContainer");
+  box.innerHTML="";
+
+  let sorted=[...data[currList]].sort((a,b)=>b.tick - a.tick);
+
+  sorted.forEach(item=>{
+    let realIndex = data[currList].indexOf(item);
+    box.innerHTML+=`
+      <div class="word-row">
+        <span>${item.en}: ${item.vn}</span>
+        <input type="checkbox" ${item.tick?"checked":""} onclick="toggleTick(${realIndex})">
+      </div>`;
+  });
+}
+
+/********** TICK UPDATE **********/
+function toggleTick(realIndex){
+  data[currList][realIndex].tick = !data[currList][realIndex].tick;
+  renderWords();
+}
+
+/********** REVIEW **********/
+function nextWord(){
+  document.getElementById("answer").innerHTML="";
+  if(listCopy.length===0){
+    document.getElementById("vietWord").innerHTML="🎉 Bạn đã học xong hết!";
+    return;
+  }
+  index=Math.floor(Math.random()*listCopy.length);
+  document.getElementById("vietWord").innerHTML=listCopy[index].vn;
+}
+
+function know(){
+  firework();
+  knownCount++;
+  listCopy.splice(index,1);
+  updateCounter();
+  nextWord();
+}
+
+function dontKnow(){
+  document.getElementById("answer").innerHTML=listCopy[index].en;
+}
+
+/********** EXERCISES **********/
+function loadExercises(){
+  const box = document.getElementById("exercise");
+  box.innerHTML = "";
+
+  exercises[currList].forEach((item, i) => {
+
+    // ===== TRẮC NGHIỆM =====
+    if(item.options){
+      box.innerHTML += `
+        <div style="margin:15px 0;">
+          ${i+1}. ${item.q}
+          <div class="mc-options">
+            ${item.options.map((opt, idx) => `
+              <div>
+                <label>
+                  <input type="radio" name="ex${i}" value="${String.fromCharCode(65+idx)}">
+                  ${String.fromCharCode(65+idx)}. ${opt}
+                </label>
+              </div>
+            `).join("")}
+          </div>
+          <button onclick="checkEx(${i})">Check</button>
+          <span id="res${i}" class="result"></span>
+        </div>
+      `;
+    }
+
+    // ===== ĐIỀN TỪ =====
+    else {
+      box.innerHTML += `
+        <div style="margin:15px 0;">
+          ${i+1}. ${item.q}
+          <input id="ex${i}">
+          <button onclick="checkEx(${i})">Check</button>
+          <span id="res${i}" class="result"></span>
+        </div>
+      `;
+    }
+  });
+}
+
+function checkEx(i){
+  const item = exercises[currList][i];
+  const box = document.getElementById("res"+i);
+
+  // ===== TRẮC NGHIỆM =====
+  if(item.options){
+    const chosen = document.querySelector(`input[name="ex${i}"]:checked`);
+    if(!chosen){
+      box.innerHTML = "⚠ Chọn 1 đáp án";
+      box.style.color = "#c77d00";
+      return;
+    }
+
+    if(chosen.value === item.correct){
+      box.innerHTML = "✔ Correct";
+      box.style.color = "#28a745";
+      firework();
+    } 
+    else {
+      let explainText = item.explain ? `<br><span style="color:#444;font-size:18px;">💡 ${item.explain}</span>` : "";
+      box.innerHTML = `✘ Đáp án đúng: <b>${item.correct}</b>${explainText}`;
+      box.style.color = "#D02752";
+    }
+  }
+
+  // ===== ĐIỀN TỪ =====
+  else {
+    const user = document.getElementById("ex"+i).value.trim().toLowerCase();
+    const ans = item.a.toLowerCase();
+
+    if(user === ans){
+      box.innerHTML = "✔ Correct";
+      box.style.color = "#28a745";
+      firework();
+    } 
+    else {
+      let explainText = item.explain ? `<br><span style="color:#444;font-size:18px;">💡 ${item.explain}</span>` : "";
+      box.innerHTML = `✘ ${item.a}${explainText}`;
+      box.style.color = "#D02752";
+    }
+  }
+}
+
+/********** FIREWORK **********/
+function firework(){
+  for(let i=0;i<25;i++){
+    const c=document.createElement("div");
+    c.className="confetti";
+    c.style.setProperty("--x",(Math.random()-.5)*600+"px");
+    c.style.setProperty("--y",(Math.random()-.5)*600+"px");
+    c.style.backgroundColor=`hsl(${Math.random()*360},90%,60%)`;
+    document.body.appendChild(c);
+    setTimeout(()=>c.remove(),900);
+  }
+}
+</script>
+
+</body>
+</html>
